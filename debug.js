@@ -1,10 +1,12 @@
 function addTwoNumbers(num1, num2) {
+  console.log(`num1 + num2 is: ${num1 + num2}`);
   return `num1 + num2 is: ${num1 + num2}`;
 }
 
 function printEvenNumbers(arrayOfNumbers) {
   return arrayOfNumbers.filter((num) => {
     if (num % 2 === 0) {
+      console.log(num);
       return num;
     }
   });
