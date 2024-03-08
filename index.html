@@ -8,21 +8,15 @@
     <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
   </head>
   <body>
-    <div id="mocha">
-      <p><a href="./index.html">Index</a></p>
-    </div>
-    <div id="messages"></div>
-    <div id="fixtures"></div>
-
+    <div id="mocha"></div>
     <script src="./node_modules/mocha/mocha.js"></script>
     <script src="./node_modules/chai/chai.js"></script>
-    <script src="JS6Lab.js"></script>
     <script>
-      mocha.setup('bdd')
+      mocha.setup("bdd");
     </script>
     <script src="tests.js"></script>
     <script>
-      mocha.run()
+      mocha.run();
     </script>
   </body>
 </html>
