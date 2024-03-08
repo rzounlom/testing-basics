@@ -1,9 +1,15 @@
 const expect = chai.expect;
-const assert = chai.assert;
+// const assert = chai.assert;
 
 /**Setup funcitons to test */
 // Our simple calculator module for demonstration
-const add = (a, b) => a + b; // function to add two numbers
+const add = (a, b) => {
+  // if (typeof a !== "number" || typeof b !== "number") {
+  //   throw new TypeError("Invalid input type."); //throw error if input is not a number
+  // }
+
+  return a + b;
+}; // function to add two numbers
 const subtract = (a, b) => a - b; //function to subtract two numbers
 const multiply = (a, b) => a * b; //function to multiply two numbers
 const divide = (a, b) => {
@@ -66,52 +72,54 @@ describe("Calculator Module", function () {
   });
 });
 
+/**Some Failure Cases */
+
 describe("Calculator Module - Failure Cases", function () {
   // Additional tests for addition
   describe("Addition - Failure Cases", function () {
     it("handles string input by throwing a TypeError", function () {
-      expect(add("2", 3)).to.throw(TypeError);
-      expect(add(2, "3")).to.throw(TypeError);
+      expect(() => add("2", 3)).to.throw(TypeError);
+      expect(() => add(2, "3")).to.throw(TypeError);
     });
   });
 
   // Additional tests for subtraction
   describe("Subtraction - Failure Cases", function () {
     it("handles string input by throwing a TypeError", function () {
-      expect(subtract("5", 3)).to.throw(TypeError);
-      expect(subtract(5, "3")).to.throw(TypeError);
+      expect(() => subtract("5", 3)).to.throw(TypeError);
+      expect(() => subtract(5, "3")).to.throw(TypeError);
     });
   });
 
   // Additional tests for multiplication
   describe("Multiplication - Failure Cases", function () {
     it("handles string input by throwing a TypeError", function () {
-      expect(multiply("4", 5)).to.throw(TypeError);
-      expect(multiply(4, "5")).to.throw(TypeError);
+      expect(() => multiply("4", 5)).to.throw(TypeError);
+      expect(() => multiply(4, "5")).to.throw(TypeError);
     });
 
     it("multiplies two negative numbers resulting in a positive", function () {
-      expect(multiply(-2, -2)).to.equal(4);
+      expect(() => multiply(-2, -2)).to.equal(4);
     });
   });
 
   // Additional tests for division
   describe("Division - Failure Cases", function () {
     it("handles string input by throwing a TypeError", function () {
-      expect(divide("10", 2)).to.throw(TypeError);
-      expect(divide(10, "2")).to.throw(TypeError);
+      expect(() => divide("10", 2)).to.throw(TypeError);
+      expect(() => divide(10, "2")).to.throw(TypeError);
     });
 
     it("dividing a negative number by a positive number results in a negative", function () {
-      expect(divide(-10, 2)).to.equal(-5);
+      expect(() => divide(-10, 2)).to.equal(-5);
     });
 
     it("dividing a positive number by a negative number results in a negative", function () {
-      expect(divide(10, -2)).to.equal(-5);
+      expect(() => divide(10, -2)).to.equal(-5);
     });
 
     it("dividing two negative numbers results in a positive", function () {
-      expect(divide(-10, -2)).to.equal(5);
+      expect(() => divide(-10, -2)).to.equal(5);
     });
   });
 });
